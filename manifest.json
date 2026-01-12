@@ -1,7 +1,7 @@
 {
   "format_version": 2,
   "header": {
-    "name": "BP Scripting Helper",
+    "name": "BP OsueaApi",
     "min_engine_version": [1, 20, 20],
     "uuid": "b1b78ce2-1752-4484-8363-754bb1d8cfda",
     "description": "Made by Osuea",

@@ -1,5 +1,6 @@
 import { world } from "@minecraft/server";
 import { mainMenu, secondMenu } from "./OsueaApi/examples/ActionForm.js";
+import { thirdMenu } from "./OsueaApi/examples/ModalForm.js";
 
 
 
@@ -8,5 +9,6 @@ world.afterEvents.itemUse.subscribe(data => {
     const player = source
     switch (itemStack.typeId) {
         case "minecraft:stick": return secondMenu(player);
+        case "minecraft:diamond": return thirdMenu(player);
     }
 })
