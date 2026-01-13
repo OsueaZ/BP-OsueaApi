@@ -1,4 +1,4 @@
-import { system, World } from "@minecraft/server";
+import { system, world } from "@minecraft/server";
 import { WorldAfterEvents } from "./OsueaApi/worldEvents/WorldAfterEvents.js";
 import { mainMenu, secondMenu } from "./OsueaApi/examples/ActionForm.js";
 import { thirdMenu } from "./OsueaApi/examples/ModalForm.js";
@@ -19,6 +19,13 @@ WorldAfterEvents.playerSpawn((eventData) => {
     if (!eventData.initialSpawn) return;
     secondMenu(player);
 });
+
+WorldAfterEvents.chatSend((eventData) => {
+    const player = eventData.sender;
+    const message = eventData.message;
+
+    world.sendMessage(`§8[§3Osu§bea§f-Api§8] §f${player.name} §8> §7${message}`)
+})
 
 // Run every 20 ticks (~1 second)
 const intervalId = TickInterval.run(20, () => {

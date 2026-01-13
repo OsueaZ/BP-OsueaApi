@@ -14,6 +14,13 @@ export class WorldAfterEvents {
         world.afterEvents.playerSpawn.subscribe((eventData) => {
             callback(eventData);
         });
-    } 9
+    }
+
+    static chatSend(callback) {
+        world.afterEvents.chatSend.subscribe((eventData) => {
+            callback(eventData);
+        });
+    }
 }
 
+// world.afterEvents.
