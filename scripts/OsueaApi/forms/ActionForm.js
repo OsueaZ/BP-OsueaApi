@@ -19,7 +19,6 @@ export class ActionForm {
     }
 
     button(text, iconPath = "texture/blocks/barrier", callback = null, options = {}) {
-        // Add button with default options
         this._buttons.push({
             text,
             iconPath,
@@ -27,8 +26,8 @@ export class ActionForm {
             options: {
                 locked: options.locked ?? false,
                 lockedMessage: options.lockedMessage ?? "§cThis button is locked.",
-                confirm: options.confirm ?? false,                  // Enable confirmation
-                confirmText: options.confirmText ?? "Are you sure?" // Confirmation text
+                confirm: options.confirm ?? false,
+                confirmText: options.confirmText ?? "Are you sure?"
             }
         });
         return this;
@@ -55,7 +54,6 @@ export class ActionForm {
             .title(this._title)
             .body(this._body);
 
-        // Add all buttons to the form
         for (const button of this._buttons) {
             button.iconPath
                 ? form.button(button.text, button.iconPath)
@@ -70,13 +68,11 @@ export class ActionForm {
 
             const button = this._buttons[response.selection];
 
-            // Locked buttons
             if (button.options.locked) {
                 player.sendMessage(button.options.lockedMessage);
                 return;
             }
 
-            // Confirmation
             if (button.options.confirm) {
                 const confirmForm = new ActionFormData()
                     .title(button.text)
@@ -92,7 +88,6 @@ export class ActionForm {
                 return;
             }
 
-            // Normal callback
             if (typeof button.callback === "function") {
                 button.callback(player, response.selection);
             }

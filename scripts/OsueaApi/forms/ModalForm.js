@@ -6,8 +6,8 @@ export class ModalForm {
         this._inputs = [];
         this._onSubmit = null;
         this._onCancel = null;
-        this._confirm = false; // Confirm before submit
-        this._confirmText = "Are you sure?"; // Default confirmation message
+        this._confirm = false;
+        this._confirmText = "Are you sure?";
     }
 
     title(text) {
@@ -68,13 +68,11 @@ export class ModalForm {
         return this;
     }
 
-    // Confirm before submitting
     confirm(value = true) {
         this._confirm = value;
         return this;
     }
 
-    // Custom text for the confirmation
     confirmText(text) {
         this._confirmText = String(text);
         return this;
@@ -106,7 +104,6 @@ export class ModalForm {
                 return;
             }
 
-            // If confirm is enabled, show a Yes/No form first
             const proceed = () => {
                 if (this._onSubmit) this._onSubmit(player, response.formValues);
             };

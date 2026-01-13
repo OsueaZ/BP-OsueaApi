@@ -1,10 +1,9 @@
 import { world } from "@minecraft/server";
 
 
-//when opening a AcitonForm here, it MUST be in a function.
 export class WorldAfterEvents {
 
-    static itemUse(callback) { //This event will fire after an item is consumed/used.
+    static itemUse(callback) {
         world.afterEvents.itemUse.subscribe((eventData) => {
             callback(eventData);
         });
