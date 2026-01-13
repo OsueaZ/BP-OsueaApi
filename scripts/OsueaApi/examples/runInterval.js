@@ -1,6 +1,6 @@
 import { TickInterval } from "../runInterval";
 
-// Run every 20 ticks (~1 second)
+// Run every 20 ticks (1 second)
 const intervalId = TickInterval.run(20, () => {
     console.warn("Tick happened!");
 });

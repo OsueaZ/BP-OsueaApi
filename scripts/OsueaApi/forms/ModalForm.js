@@ -7,7 +7,7 @@ export class ModalForm {
         this._onSubmit = null;
         this._onCancel = null;
         this._confirm = false;
-        this._confirmText = "Are you sure?";
+        this._confirmText = "";
     }
 
     title(text) {
